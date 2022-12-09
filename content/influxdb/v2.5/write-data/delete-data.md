@@ -87,7 +87,7 @@ deletes all data in the specified bucket with timestamps between the specified `
 influx delete --bucket example-bucket \
   --start '1970-01-01T00:00:00Z' \
   --stop $(date +"%Y-%m-%dT%H:%M:%SZ") \
-  --predicate '_measurement="example-measurement" AND exampleTag="exampleTagValue"'
+  --predicate '"_measurement"="example-measurement" AND "exampleTag"="exampleTagValue"'
 ```
 
 ##### Delete all points in a specified time range
@@ -104,7 +104,7 @@ influx delete --bucket example-bucket \
 influx delete --bucket example-bucket \
   --start 2022-01-01T00:00:00Z \
   --stop 2022-02-01T00:00:00Z \
-  --predicate '_field="example-field"'
+  --predicate '"_field"="example-field"'
 ```
 
 {{% /cloud-only %}}
@@ -149,7 +149,7 @@ curl --request POST http://localhost:8086/api/v2/delete?org=example-org&bucket=e
   --data '{
     "start": "2020-03-01T00:00:00Z",
     "stop": "2020-11-14T00:00:00Z",
-    "predicate": "_measurement=\"example-measurement\" AND exampleTag=\"exampleTagValue\""
+    "predicate": "\"_measurement\"=\"example-measurement\" AND \"exampleTag\"=\"exampleTagValue\""
   }'
 ```
 
@@ -174,7 +174,7 @@ curl --request POST http://localhost:8086/api/v2/delete?org=example-org&bucket=e
   --data '{
     "start": "2022-01-01T00:00:00Z",
     "stop": "2022-02-01T00:00:00Z",
-    "predicate": "_field=\"example-field\""
+    "predicate": "\"_field\"=\"example-field\""
   }'
 ```
 
